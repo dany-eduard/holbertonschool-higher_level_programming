@@ -9,7 +9,7 @@ if number < 0:
 if lastdigit > 5:
         show = 'greater than 5'
 elif lastdigit == 0:
-        show = 0
+        show = '0'
 elif lastdigit < 6:
         show = 'and is less than 6 and not 0'
 
