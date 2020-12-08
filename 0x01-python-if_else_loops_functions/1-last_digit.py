@@ -3,7 +3,7 @@ import random
 number = random.randint(-10000, 10000)
 lastdigit = abs(number) % 10  # Use abs to get the absolute value
 
-if number < 0:
+if number <= 0:
         lastdigit *= -1
 
 if lastdigit > 5:
