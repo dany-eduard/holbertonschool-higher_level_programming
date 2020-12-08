@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import random
-number = 32426 #random.randint(-10000, 10000)
+number = random.randint(-10000, 10000)
 lastdigit = abs(number) % 10 #Use abs to get the absolute value
 # print(number, lastdigit)
 if number < 0:
