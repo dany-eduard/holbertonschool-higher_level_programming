@@ -60,6 +60,7 @@ $
 _Write a Shell script that runs a Python script._  
 _The Python file name will be saved in the environment variable ```$PYFILE```_
 * File: **[0-run](https://github.com/dany-eduard/holbertonschool-higher_level_programming/blob/main/0x00-python-hello_world/0-run)**  
+  
 ***Example:***
 ```bash
 dany@ubuntu:~/py/0x00$ cat main.py 
@@ -127,6 +128,7 @@ _Complete the [source code](https://github.com/holbertonschool/0x00.py/blob/mast
 * You are not allowed to cast ```number``` to string
 * You have to use the new print formatting [tips](https://pyformat.info/#number_padding) (with .format(...))
 * File: **[4-print_float.py](https://github.com/dany-eduard/holbertonschool-higher_level_programming/blob/main/0x00-python-hello_world/4-print_float.py)**  
+  
 ***Example:***
 ```sh
 dany@ubuntu:~/py/0x00$ ./4-print_float.py
@@ -431,7 +433,7 @@ _Write a Python script that prints exactly_ ```and that piece of art is useful -
 * You are not allowed to use ```print```
 * Your script should print to ```stderr```
 * Your script should exit with the status code ```1```
-* My doc: [sys.stdout.write in Python](https://www.geeksforgeeks.org/sys-stdout-write-in-python/#:~:text=This%20is%20a%20built%2Din,are%20also%20governed%20by%20it.)
+* My doc: [sys.stdout.write in Python](https://www.geeksforgeeks.org/sys-stdout-write-in-python/#:~:text=This%20is%20a%20built%2Din,are%20also%20governed%20by%20it.) and [Python sys.stderr.write() Examples](https://www.programcreek.com/python/example/56344/sys.stderr.write)
 * File: **[100-write.py](https://github.com/dany-eduard/holbertonschool-higher_level_programming/blob/main/0x00-python-hello_world/100-write.py)**  
   
 ***Example:***
