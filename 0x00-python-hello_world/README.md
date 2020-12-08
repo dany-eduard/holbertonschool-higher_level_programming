@@ -10,6 +10,7 @@ Python is an easy to learn, powerful programming language. It has efficient high
 * [How To Use String Formatters in Python 3](https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3)
 * [Learn to Program - YouTube](https://www.youtube.com/playlist?list=PLGLfVvz_LVvTn3cK5e6LjhgGiSeVlIRwt)
 * [PEP 8 – Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
+* [sys.stdout.write in Python](https://www.geeksforgeeks.org/sys-stdout-write-in-python/#:~:text=This%20is%20a%20built%2Din,are%20also%20governed%20by%20it.) and [Python sys.stderr.write() Examples](https://www.programcreek.com/python/example/56344/sys.stderr.write)
 
 ## Requirements
 ### Python Scripts
