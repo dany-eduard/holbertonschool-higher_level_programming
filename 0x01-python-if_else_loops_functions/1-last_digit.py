@@ -11,6 +11,6 @@ if lastdigit > 5:
 elif lastdigit == 0:
         show = '0'
 elif lastdigit < 6:
-        show = 'and is less than 6 and not 0'
+        show = 'less than 6 and not 0'
 
 print('Last digit of {:d} is {:d} and is {:s}'.format(number, lastdigit, show))
