@@ -9,7 +9,7 @@ To support this, Python has a way to put definitions in a file and use them in a
 * [Command Line Arguments](https://docs.python.org/3.4/tutorial/stdlib.html#command-line-arguments)
 * [PEP 8 – Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
 
-*Man or Help**
+**Man or Help**
 * ```python3```
 
 ## Requirements
@@ -35,8 +35,8 @@ _Write a program that imports the function def_ ```add(a, b):``` _from the file_
 * File: **[0-add.py](https://github.com/dany-eduard/holbertonschool-higher_level_programming/blob/main/0x02-python-import_modules/0-add.py)**  
   
 ***Example:***
-```c++
-guillaume@ubuntu:~/0x02$ cat add_0.py
+```py
+dany@ubuntu:~/0x02$ cat add_0.py
 #!/usr/bin/python3
 def add(a, b):
     """My addition function
@@ -50,12 +50,12 @@ def add(a, b):
     """
     return (a + b)
 
-guillaume@ubuntu:~/0x02$ ./0-add.py
+dany@ubuntu:~/0x02$ ./0-add.py
 1 + 2 = 3
-guillaume@ubuntu:~/0x02$ cat 0-import_add.py
+dany@ubuntu:~/0x02$ cat 0-import_add.py
 __import__("0-add")
-guillaume@ubuntu:~/0x02$ python3 0-import_add.py 
-guillaume@ubuntu:~/0x02$ 
+dany@ubuntu:~/0x02$ python3 0-import_add.py 
+dany@ubuntu:~/0x02$ 
 ```
   
 ______________________
@@ -74,8 +74,8 @@ _Write a program that imports functions from the file_ ```calculator_1.py```_, d
 * File: **[1-calculation.py](https://github.com/dany-eduard/holbertonschool-higher_level_programming/blob/main/0x02-python-import_modules/1-calculation.py)**  
   
 ***Example:***
-```c++
-guillaume@ubuntu:~/0x02$ cat calculator_1.py
+```py
+dany@ubuntu:~/0x02$ cat calculator_1.py
 #!/usr/bin/python3
 def add(a, b):
     """My addition function
@@ -128,12 +128,12 @@ def div(a, b):
     """
     return int(a / b)
 
-guillaume@ubuntu:~/0x02$ ./1-calculation.py
+dany@ubuntu:~/0x02$ ./1-calculation.py
 10 + 5 = 15
 10 - 5 = 5
 10 * 5 = 50
 10 / 5 = 2
-guillaume@ubuntu:~/0x02$
+dany@ubuntu:~/0x02$
 ```
   
 ______________________
@@ -151,13 +151,13 @@ _Write a program that prints the number of and the list of its arguments._
 * File: **[2-args.py](https://github.com/dany-eduard/holbertonschool-higher_level_programming/blob/main/0x02-python-import_modules/2-args.py)**  
   
 ***Example:***
-```sh
-guillaume@ubuntu:~/0x02$ ./2-args.py 
+```py
+dany@ubuntu:~/0x02$ ./2-args.py 
 0 arguments.
-guillaume@ubuntu:~/0x02$ ./2-args.py Hello
+dany@ubuntu:~/0x02$ ./2-args.py Hello
 1 argument:
 1: Hello
-guillaume@ubuntu:~/0x02$ ./2-args.py Hello Holberton School 98 Battery street
+dany@ubuntu:~/0x02$ ./2-args.py Hello Holberton School 98 Battery street
 6 arguments:
 1: Hello
 2: Holberton
@@ -165,7 +165,7 @@ guillaume@ubuntu:~/0x02$ ./2-args.py Hello Holberton School 98 Battery street
 4: 98
 5: Battery
 6: street
-guillaume@ubuntu:~/0x02$ 
+dany@ubuntu:~/0x02$ 
 ```
   
 ______________________
@@ -177,21 +177,21 @@ _Write a program that prints the result of the addition of all arguments_
 * File: **[3-infinite_add.py](https://github.com/dany-eduard/holbertonschool-higher_level_programming/blob/main/0x02-python-import_modules/3-infinite_add.py)**  
   
 ***Example:***
-```sh
-guillaume@ubuntu:~/0x02$ ./3-infinite_add.py
+```py
+dany@ubuntu:~/0x02$ ./3-infinite_add.py
 0
-guillaume@ubuntu:~/0x02$ ./3-infinite_add.py 79 10
+dany@ubuntu:~/0x02$ ./3-infinite_add.py 79 10
 89
-guillaume@ubuntu:~/0x02$ ./3-infinite_add.py 79 10 -40 -300 89 
+dany@ubuntu:~/0x02$ ./3-infinite_add.py 79 10 -40 -300 89 
 -162
-guillaume@ubuntu:~/0x02$ 
+dany@ubuntu:~/0x02$ 
 ```
 _Last but not least, your program should also handle big numbers. And the good news is: if your program works for the above example, it will work for the following example:_
 
-```sh
-guillaume@ubuntu:~/0x02$ ./3-infinite_add.py 1111111111111111111111111111111111111111111111111111111111112222222222222222222222222222222222223435467866765443534434222222254444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555666666666666666666666666666666777777777777777777777777777777888888888888888888888888888888899999999999999999999999990000000000000000000 11111111111111111111111111111111111111111111111111222222222222222222222222222333333333333333333334567788888899999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+```py
+dany@ubuntu:~/0x02$ ./3-infinite_add.py 1111111111111111111111111111111111111111111111111111111111112222222222222222222222222222222222223435467866765443534434222222254444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555666666666666666666666666666666777777777777777777777777777777888888888888888888888888888888899999999999999999999999990000000000000000000 11111111111111111111111111111111111111111111111111222222222222222222222222222333333333333333333334567788888899999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
 11111111111111111111111111111111111111111111111111222222222222222222222222222333333333333333333334568900000011111111111111111111111111111111111111111111111111112222222222222222222222222222222222223435467866765443534434222222254444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555666666666666666666666666666666777777777777777777777777777777888888888888888888888888888888899999999999999999999999989999999999999999999
-guillaume@ubuntu:~/0x02$
+dany@ubuntu:~/0x02$
 ```
   
 ______________________
@@ -204,13 +204,13 @@ _Write a program that prints all the names defined by the compiled module_ ```hi
 * File: **[4-hidden_discovery.py](https://github.com/dany-eduard/holbertonschool-higher_level_programming/blob/main/0x02-python-import_modules/4-hidden_discovery.py)**  
   
 ***Example:***
-```sh
-guillaume@ubuntu:~/0x02$ curl -Lso "hidden_4.pyc" "https://github.com/holbertonschool/0x02.py/raw/master/hidden_4.pyc"
-guillaume@ubuntu:~/0x02$ ./4-hidden_discovery.py | sort
+```py
+dany@ubuntu:~/0x02$ curl -Lso "hidden_4.pyc" "https://github.com/holbertonschool/0x02.py/raw/master/hidden_4.pyc"
+dany@ubuntu:~/0x02$ ./4-hidden_discovery.py | sort
 my_secret_santa
 print_holberton
 print_school
-guillaume@ubuntu:~/0x02$ 
+dany@ubuntu:~/0x02$ 
 ```
   
 ______________________
@@ -221,16 +221,16 @@ _Write a program that imports the variable_ ```a``` _from the file_ ```variable_
 * File: **[5-variable_load.py](https://github.com/dany-eduard/holbertonschool-higher_level_programming/blob/main/0x02-python-import_modules/5-variable_load.py)**  
   
 ***Example:***
-```sh
-guillaume@ubuntu:~/0x02$ cat variable_load_5.py
+```py
+dany@ubuntu:~/0x02$ cat variable_load_5.py
 #!/usr/bin/python3
 a = 98
 """Simple variable
 """
 
-guillaume@ubuntu:~/0x02$ ./5-variable_load.py
+dany@ubuntu:~/0x02$ ./5-variable_load.py
 98
-guillaume@ubuntu:~/0x02$
+dany@ubuntu:~/0x02$
 ```
   
 ______________________
@@ -255,8 +255,8 @@ _Write a program that imports all functions from the file_ ```calculator_1.py```
 * File: **[100-my_calculator.py](https://github.com/dany-eduard/holbertonschool-higher_level_programming/blob/main/0x02-python-import_modules/100-my_calculator.py)**  
   
 ***Example:***
-```c++
-guillaume@ubuntu:~/0x02$ cat calculator_1.py
+```py
+dany@ubuntu:~/0x02$ cat calculator_1.py
 #!/usr/bin/python3
 def add(a, b):
     """My addition function
@@ -309,16 +309,16 @@ def div(a, b):
     """
     return int(a / b)
 
-guillaume@ubuntu:~/0x02$ ./100-my_calculator.py ; echo $?
+dany@ubuntu:~/0x02$ ./100-my_calculator.py ; echo $?
 Usage: ./100-my_calculator.py <a> <operator> <b>
 1
-guillaume@ubuntu:~/0x02$ ./100-my_calculator.py 3 + 5 ; echo $?
+dany@ubuntu:~/0x02$ ./100-my_calculator.py 3 + 5 ; echo $?
 3 + 5 = 8
 0
-guillaume@ubuntu:~/0x02$ ./100-my_calculator.py 3 H 5 ; echo $?
+dany@ubuntu:~/0x02$ ./100-my_calculator.py 3 H 5 ; echo $?
 Unknown operator. Available operators: +, -, * and /
 1
-guillaume@ubuntu:~/0x02$
+dany@ubuntu:~/0x02$
 ```
   
 ______________________
@@ -329,10 +329,10 @@ _Write a program that prints_ ```#pythoniscool```_, followed by a new line, in t
 * File: **[101-easy_print.py](https://github.com/dany-eduard/holbertonschool-higher_level_programming/blob/main/0x02-python-import_modules/101-easy_print.py)**  
   
 ***Example:***
-```sh
-guillaume@ubuntu:~/0x02$ ./101-easy_print.py
+```py
+dany@ubuntu:~/0x02$ ./101-easy_print.py
 #pythoniscool
-guillaume@ubuntu:~/0x02$ 
+dany@ubuntu:~/0x02$ 
 ```
   
 ______________________
@@ -405,12 +405,12 @@ _Write a program that prints the alphabet in uppercase, followed by a new line._
 * File: **[](https://github.com/dany-eduard/holbertonschool-higher_level_programming/blob/main/0x02-python-import_modules/103-fast_alphabet.py)**  
   
 ***Example:***
-```sh
-guillaume@ubuntu:~/0x02$ ./103-fast_alphabet.py
+```py
+dany@ubuntu:~/0x02$ ./103-fast_alphabet.py
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
-guillaume@ubuntu:~/0x02$ wc -l 103-fast_alphabet.py
+dany@ubuntu:~/0x02$ wc -l 103-fast_alphabet.py
 3 103-fast_alphabet.py
-guillaume@ubuntu:~/0x02$
+dany@ubuntu:~/0x02$
 ```
   
 ________________________________________________
