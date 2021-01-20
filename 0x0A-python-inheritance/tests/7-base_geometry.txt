@@ -32,12 +32,6 @@ Integer validate with type string:
 	...
 	TypeError: name must be an integer
 
-Integer validate with type bool:
-	>>> bg.integer_validator('name', True)
-	Traceback (most recent call last):
-	...
-	TypeError: name must be an integer
-
 Integer validate with type float:
 	>>> bg.integer_validator('name', 12.5)
 	Traceback (most recent call last):
