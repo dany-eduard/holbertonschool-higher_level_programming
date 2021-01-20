@@ -1,0 +1,32 @@
+============================
+``1-my_list`` module
+============================
+
+``1-my_list`` prints the list in ascending sort.
+
+Import function from module:
+>>> MyList = __import__('1-my_list').MyList
+>>> l = Mylist(20, 3, 8, 7)
+>>> l. print_sorted()
+[3, 7, 8, 20]
+
+>>> l = Mylist()
+>>> l.print_sorted()
+[]
+
+>>> l = Mylist()
+>>> isinstance(l, list)
+True
+
+>>> l = Mylist()
+>>> type(l) == Mylist
+True
+
+>>> l = Mylist()
+>>> isinstance(l, list)
+True
+
+>>> add_integer(float('inf'), 0)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
