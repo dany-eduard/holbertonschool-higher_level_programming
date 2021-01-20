@@ -3,11 +3,6 @@
 
 
 class MyList(list):
-    """This class inherits from list
-
-    Args:
-        list (class)
-    """
+    """This method print the sorted list"""
     def print_sorted(self):
-        """This method print the sorted list"""
         print(sorted(self))
