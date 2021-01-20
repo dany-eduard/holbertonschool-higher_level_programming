@@ -11,7 +11,7 @@ class BaseGeometry:
         """
         Public instance method that raises an Exception with the message.
         """
-        raise Exeption('area() is not implemented')
+        raise Exception('area() is not implemented')
 
     def integer_validator(self, name, value):
         """Public instance method that validates value."""
