@@ -8,4 +8,4 @@ string, integer and boolean) for JSON serialization of an object
 
 def class_to_json(obj):
     """Return the dictionary description"""
-    return obj.__dict__ # or vars(obj)
+    return obj.__dict__  # or vars(obj)
