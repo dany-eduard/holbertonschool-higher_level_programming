@@ -3,6 +3,7 @@
 
 
 def pascal_triangle(n):
+    """The Pascal Triangle function"""
     mtx = []
     aux = 0
     for i in range(n):
