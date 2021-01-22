@@ -850,8 +850,8 @@ Write a script that finds a string in the heap of a running process, and replace
 - On usage error, print an error message on `stdout` and exit with status code `1`
 - File: **[read_write_heap.py](https://github.com/dany-eduard/holbertonschool-higher_level_programming/blob/main/0x0B-python-input_output/read_write_heap.py)**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xcpXT4Bukgk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+[![Video YouTube](http://img.youtube.com/vi/xcpXT4Bukgk/0.jpg)](https://www.youtube.com/embed/xcpXT4Bukgk "Writing in the VM of a running process (find and replace string example)")
+**Writing in the VM of a running process (find and replace string example) YouTube**
 
 ---
 
