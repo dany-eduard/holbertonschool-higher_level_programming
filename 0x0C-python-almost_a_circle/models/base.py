@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """This module contains the Base Class"""
+import json
 
 
 class Base:
@@ -16,3 +17,22 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """Return the JSON string representationof a list of dict"""
+        if list_dictionaries is None or not list_dictionaries:
+            return "[]"
+        else:
+            return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """Return the JSON string representation of list_objs to a file"""
+        json_file = cls.__name__+".json"
+        aux_list = []
+        if list_objs is not None:
+            for i in list_objs:
+                aux_list.append(i.to_dictionary())
+        with open(json_file, 'w') as f:
+            f.write(cls.to_json_string(aux_list))
