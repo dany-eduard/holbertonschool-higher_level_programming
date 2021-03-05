@@ -72,6 +72,27 @@ mysql&gt; quit
 Bye
 $
 </code></pre>
+
+<h3>How to import a SQL dump</h3>
+
+<pre><code>$ echo &quot;CREATE DATABASE hbtn_0d_tvshows;&quot; | mysql -uroot -p
+Enter password: 
+$ curl &quot;https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/274/hbtn_0d_tvshows.sql&quot; -s | mysql -uroot -p hbtn_0d_tvshows
+Enter password: 
+$ echo &quot;SELECT * FROM tv_genres&quot; | mysql -uroot -p hbtn_0d_tvshows
+Enter password: 
+id  name
+1   Drama
+2   Mystery
+3   Adventure
+4   Fantasy
+5   Comedy
+6   Crime
+7   Suspense
+8   Thriller
+$
+</code></pre>
+
 </div>
 
 ## Tasks
