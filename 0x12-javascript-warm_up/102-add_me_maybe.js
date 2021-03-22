@@ -1,4 +1,4 @@
-#!/usr/bin/nodejs
+#!/usr/bin/node
 
 exports.addMeMaybe = function (number, thefunction) {
   number += 1;
