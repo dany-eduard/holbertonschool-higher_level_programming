@@ -3,7 +3,7 @@
 Script that changes the name of a State object from the database
 """
 from sys import argv
-from sqlalchemy import create_connection
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import State
 
