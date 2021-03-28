@@ -9,13 +9,9 @@ from model_state import State
 
 
 if __name__ == '__main__':
-    username = argv[1]
-    password = argv[2]
-    db_name = argv[3]
-    connection = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
-
-    Base.metadata.create_all(connection)
-    sesion = sessionmaker(bind=connection)
+    engine = create_engine('mysql://{}:{}@localhost/{}'.
+                           format(argv[1], argv[2], argv[3]))
+    sesion = sessionmaker(bind=engine)
     session = sesion()
     search_state = session.query(State).filter(State.id == 2).first()
     search_state.name = 'New Mexico'
