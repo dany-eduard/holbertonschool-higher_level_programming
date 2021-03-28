@@ -17,12 +17,12 @@ if __name__ == '__main__':
     engine = create_engine(connection.format(
         username, password, db_name, pool_pre_pint=True))
 
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    query = (session.query(State). filter_by(
-        name=search).order_by(State.id).all())
-
-    if len(query) == 0:
+    state = (session.query(State).filter(State.name.like(argv[4])).first())
+    if state:
+        print(state.id)
+    else:
         print("Not found")
-    for item in query:
-        print("{}".format(item.id))
+    session.close()
