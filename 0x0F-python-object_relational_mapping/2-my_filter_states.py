@@ -11,11 +11,14 @@ if __name__ == "__main__":
                          port=3306)
 
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name = '{}'\
-    ORDER BY id ASC".format(argv[4]))
-    states = cursor.fetchall()
-    for state in states:
-        if state[1] == argv[4]:
-            print(state)
+
+    upper = "SELECT * FROM states WHERE name = '{}' ORDER BY states.id ASC"\
+            .format(argv[4])
+    cursor.execute(upper)
+    list_of_tuples = cursor.fetchall()
+    for _tuple in list_of_tuples:
+        if _tuple[1] == argv[4]:
+            print(_tuple)
+
     cursor.close()
     db.close()
