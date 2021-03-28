@@ -2,7 +2,6 @@
 """
 Prints the first State object from the database
 """
-
 from sys import argv
 from model_state import Base, State
 from sqlalchemy import (create_engine)
