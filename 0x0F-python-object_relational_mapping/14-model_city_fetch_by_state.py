@@ -10,7 +10,6 @@ from model_city import City
 if __name__ == '__main__':
     engine = create_engine(
         'mysql://{}:{}@localhost/{}'.format(argv[1], argv[2], argv[3]))
-
     sesion = sessionmaker(bind=engine)
     session = sesion()
     cities = session.query(State, City).\
