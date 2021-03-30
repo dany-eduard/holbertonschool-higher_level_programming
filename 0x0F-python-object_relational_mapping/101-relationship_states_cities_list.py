@@ -1,18 +1,23 @@
 #!/usr/bin/python3
-""" Script that lists all states form database """
+"""
+Lists all State objects, and corresponding City objects,
+contained in the database.
+"""
 from sys import argv
+from relationship_state import Base, State
+from relationship_city import City
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from model_state import State
+from sqlalchemy.orm import Session
+from sqlalchemy.schema import Table
+if __name__ == "__main__":
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+                           .format(argv[1], argv[2],
+                                   argv[3]), pool_pre_ping=True)
+    Base.metadata.create_all(engine)
 
-
-if __name__ == '__main__':
-    engine = create_engine('mysql://{}:{}@localhost/{}'.
-                           format(argv[1], argv[2], argv[3]))
-    sesion = sessionmaker(bind=engine)
-    session = sesion()
-    new_state = State(name='Louisiana')
-    session.add(new_state)
-    session.commit()
-    print(new_state.id)
+    session = Session(engine)
+    for state in session.query(State).order_by(State.id).all():
+        print("{}: {}".format(state.id, state.name))
+        for city in state.cities:
+            print("    {}: {}".format(city.id, city.name))
     session.close()
