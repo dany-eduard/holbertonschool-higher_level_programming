@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 # cript that sends a DELETE request to the URL passed as the
 # first argument and displays the body of the response.
-
 curl -sX DELETE $1
