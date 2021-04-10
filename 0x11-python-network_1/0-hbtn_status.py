@@ -10,6 +10,9 @@ with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
         - content: b'OK'
         - utf8 content: OK
     """
-    status = response.read()
-    print('Body response:\n\t- type: {}\n\t- content: {}\n\t- utf8 content: {}'
-        .format(type(status), status, status.decode('utf-8')))
+    with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
+        html = response.read()
+        print('Body response:')
+        print('\t- type: {}'.format(type(html)))
+        print('\t- content: {}'.format(html))
+        print('\t- utf8 content: {}'.format(html.decode("utf-8", "replace")))
