@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Script for response header value. """
+"""Script for response header value."""
 import urllib.request
 import sys
 
