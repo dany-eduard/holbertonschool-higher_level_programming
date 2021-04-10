@@ -1,3 +1,3 @@
 #!/bin/bash
 # Send a POST request with some parameters
-curl -s -o /dev/null -w "%{http_code}" $1
+curl -s -X HEAD -w "%{http_code}" "$1"
