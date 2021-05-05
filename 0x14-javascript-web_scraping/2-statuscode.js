@@ -9,4 +9,4 @@ request.get(url, (err, res) => {
   } else {
     console.log(`code: ${res.statusCode}`);
   }
-})
+});

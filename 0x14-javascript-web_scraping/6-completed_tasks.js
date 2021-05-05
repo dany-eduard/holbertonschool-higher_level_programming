@@ -16,7 +16,7 @@ request.get(url, (err, res, body) => {
           tasksD[task.userId] = 1;
         }
       }
-    })
+    });
   }
   console.log(tasksD);
-})
+});
