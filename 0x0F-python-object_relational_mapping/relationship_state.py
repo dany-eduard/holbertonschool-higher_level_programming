@@ -9,11 +9,8 @@ Base = declarative_base()
 
 
 class State(Base):
-    """ State class Args: Base(Object): Base class: """
-
-    __tablename__ = 'states'
-    id = Column(Integer, primary_key=True, nullable=False,
-                autoincrement=True, unique=True)
-
+    """States class"""
+    __tablename__ = "states"
+    id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String(128), nullable=False)
-    cities = relationship("City", backref="state", cascade="all, delete")
+    cities = relationship("City", backref="state")
