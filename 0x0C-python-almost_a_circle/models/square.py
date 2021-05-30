@@ -1,48 +1,53 @@
 #!/usr/bin/python3
-"""This module contains the Square Class"""
+""" Model Square that inherits from Base """
+
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """Square Class extends from Rectangle"""
+    """ Class that defines a Square Object """
 
     def __init__(self, size, x=0, y=0, id=None):
+        """ Constructor """
         super().__init__(size, size, x, y, id)
 
     @property
     def size(self):
-        """Getter - obtain the size of the Square"""
+        """ size getter """
         return self.width
 
     @size.setter
     def size(self, value):
-        """Setter - define the size value of this Square"""
+        """ size setter """
         self.width = value
         self.height = value
 
     def __str__(self):
-        """Return the str representation of Square"""
-        return "[Square] ({}) {}/{} - {}"\
-            .format(self.id, self.x, self.y, self.size)
+        """ Print Method """
+        st = "[Square] ({:d}) {:d}/{:d} - {:d}"
+        st = st.format(self.id, self.x, self.y, self.width)
+        return st
 
     def update(self, *args, **kwargs):
-        """Updates the square attributes"""
-        if len(args) > 0:
-            attr = ["id", "size", "x", "y"]
-            for key, value in enumerate(args):
-                if key == 1:
-                    setattr(self, "width", value)
-                    setattr(self, "height", value)
-                else:
-                    setattr(self, attr[key], value)
+        """ Functions to update arguments of each attr """
+        arlist = ["id", "size", "x", "y"]
+        ct = 0
+        if args and len(args) != 0:
+            for ar in args:
+                if ct == 0:
+                    super().update(ar)
+                elif ct < len(arlist):
+                    setattr(self, arlist[ct], ar)
+                ct += 1
+
         else:
             for key, value in kwargs.items():
-                if key == "size":
-                    setattr(self, "width", value)
-                    setattr(self, "height", value)
+                if key == "id":
+                    super().update(id=value)
                 else:
                     setattr(self, key, value)
 
     def to_dictionary(self):
-        """Returns the dictionary representation of a Square"""
-        return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
+        """ Returns dicitionary representation of Square """
+        sqdic = {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
+        return sqdic

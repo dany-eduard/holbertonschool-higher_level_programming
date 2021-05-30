@@ -1,19 +1,19 @@
 #!/usr/bin/python3
-"""This module contains the Base Class"""
+
+""" Module of Base Class for Geometry Rectangle and Square """
+
 import json
 import csv
-from os import path
+import turtle
 
 
 class Base:
-    """
-    This class will be the 'base' of all other classes in this project.
-    The goal of it is to manage id attribute in all your future class
-    and to avoid duplicating the same code.
-    """
+    """ Class to define base model Object """
+
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """ Constructor """
         if id is not None:
             self.id = id
         else:
@@ -22,37 +22,62 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Return the JSON string representationof a list of dict"""
-        if list_dictionaries is None or not list_dictionaries:
+        """ returns the JSON string representation of list_dictionaries """
+        if not list_dictionaries:
             return "[]"
-        else:
-            return json.dumps(list_dictionaries)
+
+        return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Return the JSON string representation of list_objs to a file"""
-        json_file = cls.__name__+".json"
-        aux_list = []
-        if list_objs is not None:
+        """  writes the JSON string representation of list_objs to a file """
+        jlist = []
+        filename = cls.__name__ + ".json"
+        if list_objs:
             for i in list_objs:
-                aux_list.append(i.to_dictionary())
-        with open(json_file, 'w') as f:
-            f.write(cls.to_json_string(aux_list))
+                jlist.append(i.to_dictionary())
+
+        st = cls.to_json_string(jlist)
+        with open(filename, "w", encoding="utf-8") as myfile:
+            myfile.write(st)
 
     @staticmethod
     def from_json_string(json_string):
-        """Return the JSON string to a list of dictionary"""
-        if json_string is None and not json_string:
+        """ returns the list of the JSON string representation json_string """
+        if not json_string or len(json_string) == 0:
             return []
+
         return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
-        """
-        Creates a "dummy" instance and updates the
-        value of the attributes with those of the given dictionary
-        and returns a new object with all attributes already set
-        """
+        """ returns an instance with all attributes already set """
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy = cls(1)
+        dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """ returns a list of instances from a file """
+        filename = cls.__name__ + ".json"
+
+        try:
+            with open(filename, encoding="utf-8") as myfile:
+                rd = myfile.read()
+                dicst = cls.from_json_string(rd)
+                inslist = []
+                for i in dicst:
+                    inslist.append(cls.create(**i))
+                return inslist
+        except IOError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ Serializes to CSV and saves to file """
         filename = cls.__name__ + ".csv"
         csvlist = []
         if list_objs:
@@ -71,8 +96,8 @@ class Base:
             w.writerows(csvlist)
 
     @classmethod
-    def load_from_file(cls):
-        """Determine if the file exist and return a list of instances (objs)"""
+    def load_from_file_csv(cls):
+        """ Deserializes from CSV and loads from file """
         filename = cls.__name__ + ".csv"
 
         try:
@@ -92,3 +117,112 @@ class Base:
                 return inslist
         except IOError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ Draws Rectangles and Squares in GUI """
+
+        if (not list_rectangles and not list_squares) or \
+           (len(list_rectangles) == 0 and len(list_squares) == 0):
+            return
+
+    def drawfig(x, y, widthfig, heightfig, xoffset, yoffset, color,
+                dd,  gr=turtle.Turtle()):
+        # Dot Distance
+        dd = dd
+        # Dot Size
+        dz = 2
+        # Angle 90 so it goes to next row
+        mov = 90
+
+        gr.goto(xoffset, yoffset)
+
+        # Y Movement
+
+        width = 1
+        height = y
+        for i in range(height):
+            for j in range(width):
+                gr.dot(dz, "black")
+                gr.forward(dd)
+            gr.backward(dd * width)
+            gr.right(mov)
+            gr.forward(dd)
+            gr.left(mov)
+
+        gr.goto(xoffset, -1 * y * dd + yoffset)
+
+        # X Movement
+
+        width = x
+        height = 1
+        for i in range(height):
+            for j in range(width):
+                gr.dot(dz, "black")
+                gr.forward(dd)
+            gr.backward(dd * width)
+            gr.right(mov)
+            gr.forward(dd)
+            gr.left(mov)
+
+        gr.goto(x * dd + xoffset, -1 * y * dd + yoffset)
+
+        # Draw Figure
+
+        width = widthfig
+        height = heightfig
+        for y in range(height):
+            for i in range(width):
+                gr.dot(dz, color)
+                gr.forward(dd)
+            gr.backward(dd * width)
+            gr.right(mov)
+            gr.forward(dd)
+            gr.left(mov)
+
+    # MAIN =========================================================
+    gr = turtle.Turtle()
+
+    # Dont show pen when drawing
+    gr.penup()
+    gr.pen(shown=False)
+
+    # Animation Speed
+    # gr.speed(0)
+
+    # Disable Animation
+    # turtle.setup(2000, 2000)
+    turtle.tracer(False)
+
+    colors = ["blue", "green", "red", "purple",
+                "brown", "orange", "gold"]
+    cl = 0
+    # Distance between dots
+    dd = 3
+    # Space between figs
+    space = 10
+    # Offset movement
+    xoffset = -950
+    yoffset = 450
+    width, height, x, y = 0, 0, 0, 0
+    for r in list_rectangles:
+        xoffset += (x + width) * dd + space
+        width, height = r.width, r.height
+        x, y = r.x, r.y
+        drawfig(x, y, width, height, xoffset, yoffset, colors[cl], dd, gr)
+        cl = cl + 1 if cl < 5 else 0
+
+    yoffset = 0
+    ct = 0
+    for s in list_squares:
+        if ct == 0:
+            xoffset = (dd + space) - 950
+            ct = 1
+        else:
+            xoffset += (x + width) * dd + space
+        width, height = s.size, s.size
+        x, y = s.x, s.y
+        drawfig(x, y, width, height, xoffset, yoffset, colors[cl], dd, gr)
+        cl = cl + 1 if cl < 5 else 0
+
+    turtle.done()
