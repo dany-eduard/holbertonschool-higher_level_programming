@@ -4,21 +4,33 @@ Adds the State object “California” with the City “San Francisco”
 to the database
 """
 import sys
+from sqlalchemy.orm import sessionmaker
 from relationship_state import Base, State
 from relationship_city import City
-from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
-from sqlalchemy.schema import Table
-if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
-                           .format(sys.argv[1], sys.argv[2],
-                                   sys.argv[3]), pool_pre_ping=True)
+from sqlalchemy import (create_engine)
+
+
+def main():
+    mysql_username = sys.argv[1]
+    mysql_password = sys.argv[2]
+    database_name = sys.argv[3]
+
+    db = ("mysql+mysqldb://{}:{}@localhost:3306/{}".format(mysql_username,
+                                                           mysql_password,
+                                                           database_name))
+
+    engine = create_engine(db, pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
-    session = Session(engine)
-    new_city = City(name='San Francisco')
-    new = State(name='California')
-    new.cities.append(new_city)
-    session.add_all([new, new_city])
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    newState = State(name="California", cities=[City(name="San Francisco")])
+    session.add(newState)
     session.commit()
+
     session.close()
+
+
+if __name__ == "__main__":
+    main()
